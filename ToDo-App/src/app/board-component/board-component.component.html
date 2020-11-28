@@ -35,7 +35,7 @@
               (click)="DeleteList('List2')">Delete this List</button></span>
         </div>
         <div  cdkDropList #todoList2="cdkDropList" [cdkDropListData]="List2" [cdkDropListConnectedTo]="[todoList2]"
-          (cdkDropListDropped)="drop($event)" style="height: 200px;">
+          (cdkDropListDropped)="drop($event)">
         </div>
         <div cdkDrag class="CardRow" *ngFor="let List of List2;let CardIndex=index">
           <div  class="my-3 mx-2" (click)="updateSelId('List2',CardIndex)" routerLink="/Card">{{List.CardTitle}}
