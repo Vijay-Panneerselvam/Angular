@@ -1,0 +1,20 @@
+<div class="container">
+    <form>
+        <button class="btn btn-outline-secondary float-right DeleteComments" (click)="deleteComments()">Delete
+            Card</button>
+        <div class="form-group pt-4 ">
+            <label for="cardtitle">Card title</label>
+            <textarea type="cardtitle" class="form-control" value='lSelectedRec.title' id="TitleTextArea"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="4" id="CommentTextArea"></textarea>
+        </div>
+        <button class="btn btn-outline-secondary" (click)="AddComments($event)">Add Comment</button>
+        <p style="color: red;" id="errTxt"></p>
+
+        <div *ngFor="let comment of this.lSelectedRec.Comments;let i = index;">
+            <span style="width: 50%;">Comment Text {{i}} : </span>
+            <span style="width: 50%;">{{comment}}</span>
+        </div>
+    </form>
+</div>

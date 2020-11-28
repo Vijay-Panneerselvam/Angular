@@ -1,0 +1,95 @@
+<div class="row ListContainerRow">
+  <span class="col-xs-3 ListContainerCol" *ngFor="let item of ListCount ;let i = index;" [ngSwitch]="i">
+    <div class="ListRow">
+
+      <div *ngSwitchCase="'0'">
+
+        <div class="row" *ngIf="List1.length>0">
+          <span class="col-4">
+            <p class="text-center ">List {{i}}</p>
+          </span>
+          <span class="col-8"><button type="button" class="btn btn-outline-secondary DeleteBtn float-right"
+              (click)="DeleteList('List1')">Delete this List</button></span>
+        </div>
+        <div cdkDropList class="container" cdkDropList #todoList1="cdkDropList" [cdkDropListData]="List2 " [cdkDropListConnectedTo]="[todoList1]"
+          (cdkDropListDropped)="drop($event)">
+          <div cdkDrag class="CardRow" *ngFor="let List of List1;let CardIndex=index">
+            <div  class="my-3 mx-2" (click)="updateSelId('List1',CardIndex)" routerLink="/Card">
+              {{List.CardTitle}}
+            </div>
+          </div>
+
+        </div>
+        <button type="button" class="btn btn-outline-secondary AddButton" (click)="updateSelId('List1','new')"
+          routerLink="/Card">Add new card</button>
+      </div>
+
+
+      <div *ngSwitchCase="'1'">
+
+        <div class="row" *ngIf="List2.length>0">
+          <span class="col-4">
+            <p class="text-center ">List {{i}}</p>
+          </span>
+          <span class="col-8"><button type="button" class="btn btn-outline-secondary DeleteBtn float-right"
+              (click)="DeleteList('List2')">Delete this List</button></span>
+        </div>
+        <div  cdkDropList #todoList2="cdkDropList" [cdkDropListData]="List2" [cdkDropListConnectedTo]="[todoList2]"
+          (cdkDropListDropped)="drop($event)" style="height: 200px;">
+        </div>
+        <div cdkDrag class="CardRow" *ngFor="let List of List2;let CardIndex=index">
+          <div  class="my-3 mx-2" (click)="updateSelId('List2',CardIndex)" routerLink="/Card">{{List.CardTitle}}
+          </div>
+        </div>
+        
+        <button type="button" class="btn btn-outline-secondary AddButton" (click)="updateSelId('List2','new')"
+          routerLink="/Card">Add new card</button>
+      </div>
+
+
+
+      <div *ngSwitchCase="'2'" cdkDropList #todoList3="cdkDropList" [cdkDropListData]="this.List3"
+        [cdkDropListConnectedTo]="[todoList3]" (cdkDropListDropped)="drop($event)">
+
+        <div class="row" *ngIf="List3.length>0">
+          <span class="col-4">
+            <p class="text-center ">List {{i}}</p>
+          </span>
+          <span class="col-8"><button type="button" class="btn btn-outline-secondary DeleteBtn float-right"
+              (click)="DeleteList('List3')">Delete this List</button></span>
+        </div>
+
+        <div cdkDrag class="CardRow" *ngFor="let List of List3;let CardIndex=index">
+          <div  class="my-3 mx-2" (click)="updateSelId('List3',CardIndex)" routerLink="/Card">{{List.CardTitle}}
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-secondary AddButton" (click)="updateSelId('List3','new')"
+          routerLink="/Card">Add new card</button>
+      </div>
+
+
+
+      <div *ngSwitchCase="'3'" cdkDropList #todoList4="cdkDropList" [cdkDropListData]="List4"
+        [cdkDropListConnectedTo]="[todoList4]" (cdkDropListDropped)="drop($event)">
+
+        <div class="row" *ngIf="List4.length>0">
+          <span class="col-4">
+            <p class="text-center ">List {{i}}</p>
+          </span>
+          <span class="col-8"><button type="button" class="btn btn-outline-secondary DeleteBtn float-right"
+              (click)="DeleteList('List4')">Delete this List</button></span>
+        </div>
+
+
+        <div cdkDrag class="CardRow" *ngFor="let List of List4;let CardIndex=index">
+          <div  class="my-3 mx-2" (click)="updateSelId('List4' ,CardIndex)" routerLink="/Card">{{List.CardTitle}}
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-secondary AddButton" (click)="updateSelId('List4','new')"
+          routerLink="/Card">Add new card</button>
+      </div>
+
+
+    </div>
+  </span>
+</div>
