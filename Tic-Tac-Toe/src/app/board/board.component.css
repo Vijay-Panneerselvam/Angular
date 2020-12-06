@@ -1,0 +1,11 @@
+.box {
+    border: 1px solid #333D79FF ;
+    text-align: center;
+    height: 100px;
+    background: #E7EBE0FF;
+    padding: 32px;
+    cursor: pointer;
+}
+.BoardLock{
+    pointer-events: none ;
+}

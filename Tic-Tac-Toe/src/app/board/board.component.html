@@ -1,0 +1,12 @@
+<div class="pt-4">
+    <button class="btn btn-success btn-sm mt-6" (click)="StartGame()">Start New game</button>
+
+</div>
+
+<div class="row pt-4" [class.BoardLock]="BoardLock">
+    <app-square class="col-4 box" [ngClass]="NextPlayer" *ngFor="let val of Squares; let i=index"
+        (click)="UpdatePlayer(i)" [PlayerValue]="val">
+    </app-square>
+    <h3 class="text-center" *ngIf="!BoardLock">Player {{NextPlayer}}'s turn</h3>
+</div>
+<h3 *ngIf="Winner" class="text-white text-center bg-info  mt-4">{{NextPlayer}} Won</h3>
